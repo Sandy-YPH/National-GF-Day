@@ -1,0 +1,277 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff0f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #ff69b4;
+    padding: 10px;
+}
+
+.romantic-date {
+    color: #e91e63;
+    font-weight: bold;
+    font-size: 1.2em;
+    background: #fff0f5;
+    padding: 4px 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(233, 30, 99, 0.2);
+    display: inline-block;
+    margin-left: 5px;
+    font-family: 'Segoe Script', cursive;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a.active {
+    font-weight: bold;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 2.5em;
+    margin: 20px 0;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #ff1493;
+}
+
+.love-message {
+    margin: 20px 0;
+}
+
+.navigation-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-card {
+    background-color: #ffe4e1;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.nav-card:hover {
+    transform: scale(1.05);
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+.photo-item {
+    position: relative;
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.photo-item:hover .photo-overlay {
+    opacity: 1;
+}
+
+.video-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-item {
+    margin: 20px 0;
+}
+
+.gift-container {
+    position: relative;
+}
+
+.gift-box {
+    cursor: pointer;
+    margin: 40px auto;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to bottom, #ffb6c1, #ff69b4);
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.gift-box:hover {
+    transform: scale(1.05);
+}
+
+/* Tambahan: pita vertikal */
+.gift-box::before, .gift-box::after {
+    content: "";
+    position: absolute;
+    background-color: #d81b60;
+}
+
+/* Pita vertikal */
+.gift-box::before {
+    width: 20px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Pita horizontal */
+.gift-box::after {
+    height: 20px;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Tutup kotak */
+.box-lid {
+    background: linear-gradient(to bottom, #ff69b4, #ff1493);
+    height: 50%;
+    border-radius: 12px 12px 0 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: transform 0.5s ease;
+    z-index: 2;
+}
+
+/* Tubuh kotak */
+.box-body {
+    background-color: transparent; /* transparan, karena sudah diatur di .gift-box */
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* Pesan setelah dibuka */
+.gift-message {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #c2185b;
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+
+.click-text {
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+.letter-paper {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ff69b4;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.letter-header {
+    margin-bottom: 20px;
+}
+
+.quiz-container {
+    text-align: center;
+}
+
+.timer-container {
+    text-align: center;
+}
+
+.timer-display {
+    font-size: 2em;
+    margin: 20px 0;
+}
+@media (max-width: 768px) {
+    .navbar ul {
+        text-align: center;
+    }
+
+    .navbar li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .main-title {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .navigation-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gift-box {
+        width: 150px;
+        height: 150px;
+    }
+
+    .letter-paper {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .timer-display {
+        font-size: 1.5em;
+    }
+}

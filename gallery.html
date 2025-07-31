@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Foto Kita ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fff0f5;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #ffb6c1;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar li {
+            margin: 5px 15px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a.active, .navbar a:hover {
+            background-color: #ff69b4;
+        }
+    .photo-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .photo-item {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid #f8f8f8;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .photo-item:hover {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        transform: scale(1.02);
+    }
+
+    .photo-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 12px;
+        background-color: #ffffff;
+    }
+
+    .photo-overlay {
+        position: absolute;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.8);
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html" class="active">Galeri Foto</a></li>
+            <li><a href="videos.html">Video Cinta</a></li>
+            <li><a href="gift.html">Hadiah Spesial</a></li>
+            <li><a href="loveletter.html">Surat</a></li>
+            <li><a href="quiz.html">Quiz Cinta</a></li>
+            <li><a href="timer.html">Waktu Kita</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Hehe Ini foto foto terbaru aja isinya 📸</h1>
+        
+        <div class="photo-gallery">
+            <div class="photo-item">
+                <img src="foto1.jpg" alt="Foto 1">
+                <div class="photo-overlay">
+                    <p>Pacarkuuuu cantiiii bangetttttttt 😍</p>
+                </div>
+            </div>
+            <div class="photo-item">
+                <img src="foto2.jpg" alt="Foto 2">
+                <div class="photo-overlay">
+                    <p>Lucunyaaaaaaaaaa ❤️</p>
+                </div>
+            </div>
+            <div class="photo-item">
+                <img src="foto3.jpg" alt="Foto 3">
+                <div class="photo-overlay">
+                    <p>Mw Pelukkkkkkk boleee ndaaaaa? 💕</p>
+                </div>
+            </div>
+            <div class="photo-item">
+                <img src="foto4.jpg" alt="Foto 4">
+                <div class="photo-overlay">
+                    <p>Ciptaan Tuhan Terindahhh ❤️</p>
+                </div>
+            </div>
+            <div class="photo-item">
+                <img src="foto5.jpg" alt="Foto 5">
+                <div class="photo-overlay">
+                    <p>Bayikuuuuuu 🌸</p>
+                </div>
+            </div>
+            <div class="photo-item">
+                <img src="foto6.jpg" alt="Foto 6">
+                <div class="photo-overlay">
+                    <p>Nda sabar mw ketemu kamuuu 💕</p>
+                </div>
+            </div>
+            <div class="photo-item">
+                <img src="foto7.jpg" alt="Foto 7">
+                 <div class="photo-overlay">
+                 <p>Kalo senyum gitu aku langsung lelehhh 🥺</p>
+                 </div>
+            </div>
+            <div class="photo-item">
+                <img src="foto8.jpg" alt="Foto 8">
+                <div class="photo-overlay">
+                <p>alaaaaaa mw dipelukkkkk 🤗</p>
+                </div>
+            </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

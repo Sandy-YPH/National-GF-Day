@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Cinta ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    /* Mobile responsive adjustments */
+    @media (max-width: 600px) {
+        body {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .quiz-container {
+            padding: 10px;
+        }
+
+        .quiz-card, .quiz-result {
+            padding: 16px;
+            font-size: 16px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .btn-option {
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        h1.page-title {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        nav.navbar ul {
+            flex-direction: column;
+            gap: 10px;
+            padding: 0;
+        }
+
+        nav.navbar ul li { display: block;
+            text-align: center;
+        }
+    }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fff0f5;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #ffb6c1;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar li {
+            margin: 5px 15px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a.active, .navbar a:hover {
+            background-color: #ff69b4;
+        }
+        
+</style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Galeri Foto</a></li>
+            <li><a href="videos.html">Video Cinta</a></li>
+            <li><a href="gift.html">Hadiah Spesial</a></li>
+            <li><a href="loveletter.html">Surat</a></li>
+            <li><a href="quiz.html" class="active">Quiz Cinta</a></li>
+            <li><a href="timer.html">Waktu Kita</a></li>
+        </ul>
+    </nav>
+
+    <div class="container quiz-container">
+        <h1 class="page-title">Seberapa Baik Kamu Mengenalku? 💕</h1>
+        
+        <div id="quizArea">
+            <div class="quiz-card" id="questionCard">
+                <h2 id="questionNumber">Pertanyaan 1 dari 5</h2>
+                <p id="questionText"></p>
+                <div class="quiz-options" id="optionsContainer"></div>
+            </div>
+            
+            <div class="quiz-result" id="quizResult" style="display: none;">
+                <h2>Hasil Quiz!</h2>
+                <p id="scoreText"></p>
+                <p id="resultMessage"></p>
+                <button class="btn-primary" onclick="restartQuiz()">Coba Lagi</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "Apa makanan favoritku? 😋",
+                options: ["Sushi", "Lasagna", "Spaghetti", "Nasi Goyeng"],
+                answer: "Lasagna"
+            },
+            {
+                question: "Tanggal berapa kita resmi jadian? 🥰",
+                options: ["1 Januari", "14 Februari", "13 May", "21 April"],
+                answer: "13 May"
+            },
+            {
+                question: "Apa warna favoritku? 🎨",
+                options: ["Biru", "Pink", "Hitam", "Putih"],
+                answer: "Putih"
+            },
+            {
+                question: "Kalau aku sedih, biasanya aku akan... 😢",
+                options: ["Turu", "Mam es krim", "Nendang Batu", "Curhat ke kamu"],
+                answer: "Curhat ke kamu"
+            },
+            {
+                question: "Apa panggilan sayangku ke kamu? 💖",
+                options: ["Bayiku", "Cintaku", "Manisku", "Semua Benar"],
+                answer: "Semua Benar"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        const questionText = document.getElementById("questionText");
+        const questionNumber = document.getElementById("questionNumber");
+        const optionsContainer = document.getElementById("optionsContainer");
+        const quizResult = document.getElementById("quizResult");
+        const scoreText = document.getElementById("scoreText");
+        const resultMessage = document.getElementById("resultMessage");
+        const questionCard = document.getElementById("questionCard");
+
+        function showQuestion() {
+            const current = quizData[currentQuestion];
+            questionNumber.textContent = `Pertanyaan ${currentQuestion + 1} dari ${quizData.length}`;
+            questionText.textContent = current.question;
+            optionsContainer.innerHTML = "";
+
+            current.options.forEach(option => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.className = "btn-option";
+                button.onclick = () => selectAnswer(option);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function selectAnswer(selected) {
+            const correct = quizData[currentQuestion].answer;
+            if (selected === correct) score++;
+            currentQuestion++;
+
+            if (currentQuestion < quizData.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            questionCard.style.display = "none";
+            quizResult.style.display = "block";
+            scoreText.textContent = `Kamu menjawab benar ${score} dari ${quizData.length} pertanyaan.`;
+
+            if (score === quizData.length) {
+                resultMessage.textContent = "Kamu kenal aku luar dalam! 💕 Kamu pacar terbaik di dunia! 😍";
+            } else if (score >= 3) {
+                resultMessage.textContent = "Lumayan! Tapi masih ada yang bisa kamu pelajari tentang aku 😘";
+            } else {
+                resultMessage.textContent = "Hm mw ngambek aja😒";
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            quizResult.style.display = "none";
+            questionCard.style.display = "block";
+            showQuestion();
+        }
+
+        // Start quiz
+        showQuestion();
+    </script>
+</body>
+</html>
